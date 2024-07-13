@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Frames with Object</h1>
+    {% if frame_files %}
+    <ul>
+        {% for filename in frame_files[:5] %}
+        <li>
+            <img src="{{ url_for('uploaded_file', filename=filename) }}" width="640" height="480">
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No frames found with the object</p>
+    {% endif %}
+    <video width="640" height="480" controls>
+        <source src="{{ url_for('uploaded_file', filename=video_path) }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</body>
+</html>

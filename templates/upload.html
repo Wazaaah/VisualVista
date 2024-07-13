@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Video</title>
+</head>
+<body>
+    <h1>Upload a Video</h1>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}">
+        <input type="file" name="file" accept="video/mp4">
+        <br><br>
+        <label for="search_query">Search Query:</label>
+        <input type="text" id="search_query" name="search_query" required>
+        <br><br>
+        <button type="submit">Upload and Detect</button>
+    </form>
+</body>
+</html>

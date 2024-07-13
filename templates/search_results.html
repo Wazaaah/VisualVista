@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Search Results</title>
+  </head>
+  <body>
+    <h1>Search Results for "{{ query }}"</h1>
+    <ul>
+      {% for idx, frame, label in frame_predictions %}
+        <li>Frame {{ idx }}: {{ label }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
